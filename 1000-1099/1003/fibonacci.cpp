@@ -1,7 +1,7 @@
 #include <iostream>
 typedef unsigned long long ullong; // 8비트 무부호 정수 타입
 
-#define ARRAY_SIZE 92
+#define ARRAY_SIZE 91
 const ullong fib(int n) {
     const ullong fibMemo[ARRAY_SIZE]={
         1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610,
@@ -22,7 +22,7 @@ const ullong fib(int n) {
         259695496911122585, 420196140727489673, 679891637638612258,
         1100087778366101931, 1779979416004714189, 2880067194370816120,
         4660046610375530309
-    }; // 92번째 숫자 까지만 저장
+    }; // 91번째 숫자 까지만 저장
     if (n > ARRAY_SIZE - 1 || n < 0)
         return 0;
     return fibMemo[n];
