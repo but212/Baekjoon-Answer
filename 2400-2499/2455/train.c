@@ -4,12 +4,13 @@
 const int maxCalc(unsigned int iter, int* in, int* out, int max, int total)
 {
     short condition = (((short)iter == 0) << 1) | ((short)max < total);
-        if (condition & 2) {
-            return max;
-        } else if (condition & 1) {
-            return maxCalc(iter - 1, in + 1, out + 1, total, total + (*(in + 1) - *(out + 1)));
-        } else {
-            return maxCalc(iter - 1, in + 1, out + 1, max, total + (*(in + 1) - *(out + 1)));
+
+    if (condition & 2) {
+        return max;
+    } else if (condition & 1) {
+        return maxCalc(iter - 1, in + 1, out + 1, total, total + (*(in + 1) - *(out + 1)));
+    } else {
+        return maxCalc(iter - 1, in + 1, out + 1, max, total + (*(in + 1) - *(out + 1)));
     }
 }
 
