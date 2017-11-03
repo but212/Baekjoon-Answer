@@ -3,13 +3,10 @@
 inline int m100(int n) { return n % 100; }
 inline int minCalc(int N, int M)
 {
-  int min = N - m100(N);
-  while (1) {
-    if (min % M == 0)
-      break;
-    min++;
-  }
-  return m100(min);
+    int min = N - m100(N);
+    while (min % M != 0)
+        min++;
+    return m100(min);
 }
 
 int main()
