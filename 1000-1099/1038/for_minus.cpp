@@ -42,10 +42,15 @@ inline long solve(int n)
     return -1;
 }
 
-int main()
+inline void program_print(int n)
 {
     memset(Cache, -1, sizeof(Cache));
+    std::cout << solve(n) << std::endl
+}
+
+int main(void)
+{
     int n; std::cin >> n; n++;
-    std::cout << solve(n) << std::endl;
+    program_print(n);
     return 0;
 }
