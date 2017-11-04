@@ -20,16 +20,16 @@ int getBC(int n, int k)
 
 const long makeNum(int n, int k, int num)
 {
-    int x = k - 1;
+    int KM1 = k - 1;
 
     if (!(k > 1))
         return num - 1;
 
-    int FirstNum = x;
-    for (int b = getBC(x, x); num > b;
-         num -= b, FirstNum++, b = getBC(FirstNum, x));
+    int FirstNum = KM1;
+    for (int b = getBC(KM1, KM1); num > b;
+         num -= b, FirstNum++, b = getBC(FirstNum, KM1));
 
-    return FirstNum * lpow10[x] + makeNum(FirstNum - 1, x, num);
+    return FirstNum * lpow10[KM1] + makeNum(FirstNum - 1, KM1, num);
 }
 
 inline long solve(int n)
