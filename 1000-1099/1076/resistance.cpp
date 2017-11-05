@@ -24,29 +24,16 @@ const ushort colorSearch(std::string color)
     return i;
 }
 
-inline ulong value(std::string color0, std::string color1)
+inline ulong solve(std::string color0, std::string color1, std::string color2)
 {
-    return colorSearch(color0) * 10 + colorSearch(color1);
-}
+    ulong value = colorSearch(color0) * 10 + colorSearch(color1);
+    ushort powexp = colorSearch(color2);
+    ulong ulpow10[10] = {
+        1, 10, 100, 1000, 10000, 100000,
+        1000000, 10000000, 100000000, 1000000000
+    };
 
-inline ulong cPower(std::string color)
-{
-    ulong exponent = colorSearch(color);
-    ulong base = 10, result = 1;
-
-    while(exponent) {
-        if (exponent & 1)
-            result *= base;
-        exponent >>= 1;
-        base *= base;
-    }
-    
-    return result;
-}
-
-inline ulong finCalc(std::string color0, std::string color1, std::string color2)
-{
-    return value(color0, color1) * cPower(color2);
+    return value * ulpow10[powexp];
 }
 
 int main()
@@ -56,7 +43,7 @@ int main()
     std::cin >> s1;
     std::cin >> s2;
 
-    std::cout << finCalc(s0, s1, s2) << std::endl;
+    std::cout << solve(s0, s1, s2) << std::endl;
     
     return 0;
 }
