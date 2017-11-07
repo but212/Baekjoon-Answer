@@ -28,7 +28,7 @@ int main()
     int cntnum; std::cin >> cntnum;
     for (int i = 0, n; i < cntnum; i++) {
         std::cin >> n;
-        std::cout << std::to_string(fib[n]) << " " << std::to_string(fib[n+1]) << std::endl;
+        std::cout << fib[n] << " " << fib[n+1] << std::endl;
     }
     return 0;
 }
