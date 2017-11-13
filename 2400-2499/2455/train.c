@@ -3,12 +3,10 @@
 
 const int maxCalc(unsigned int iter, int* in, int* out, int max, int total)
 {
-    short condition = (((short)iter == 0) << 1) | ((short)max < total);
-
-    if (condition & 2) {
+    if (iter == 0) {
         return max;
     }
-    if (condition & 1) {
+    if (max < total) {
         return maxCalc(iter - 1, in + 1, out + 1, total, total + (*(in + 1) - *(out + 1)));
     } else {
         return maxCalc(iter - 1, in + 1, out + 1, max, total + (*(in + 1) - *(out + 1)));
