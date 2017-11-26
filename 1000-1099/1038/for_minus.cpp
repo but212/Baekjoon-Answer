@@ -1,14 +1,9 @@
 #include <iostream>
 #include <cstring>
 
-long lpow10[10] = {
-    1, 10, 100, 1000, 10000, 100000,
-    1000000, 10000000, 100000000, 1000000000
-};
-
 int Cache[11][11];
 
-int getBC(int n, int k)
+constexpr int getBC(const int n, const int k)
 {
     if (n == k || k == 0)
         return 1;
@@ -18,9 +13,13 @@ int getBC(int n, int k)
     return Cache[n][k] = getBC(n-1, k-1) + getBC(n-1, k);
 }
 
-const long makeNum(int n, int k, int num)
+constexpr long makeNum(const int n, const int k, int num)
 {
-    int KM1 = k - 1;
+    const int KM1 = k - 1;
+    constexpr long lpow10[10] = {
+        1, 10, 100, 1000, 10000, 100000,
+        1000000, 10000000, 100000000, 1000000000
+    };
 
     if (!(k > 1))
         return num - 1;
