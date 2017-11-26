@@ -23,8 +23,8 @@ int main()
     std::string Input, Output;
     getline(std::cin, Input);
 
-    for (int i = 0; i < Input.length(); i++)
-        Output += caesar_decode(Input[i]);
+    for (const auto& i : Input)
+        Output += caesar_decode(i);
     
     std::cout << Output << std::endl;
     return 0;
