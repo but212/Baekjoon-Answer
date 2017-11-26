@@ -33,7 +33,7 @@ const long makeNum(const int n, const int k, int num)
 
 inline long solve(int n)
 {
-    for (int b, digit = 10; digit > 0; digit--) { // 1..10
+    for (int b, digit = 1; digit < 11; digit++) { // 1..10
         b = getBC(10, digit);
         if (n > b) n -= b;
         else return makeNum(9, digit, n);
